@@ -1,8 +1,9 @@
 @charset "utf-8";
 
-/* :root {
-
-} */
+:root {
+  --vertical-gap: 2rem;
+  --font-color: rgb(232, 232, 232);
+}
 
 .container {
     width: min(100% - 30px, 1080px);
@@ -21,4 +22,35 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: rgb(57, 57, 57);
+}
+
+/* ============================================================================ */
+.wrapper {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--vertical-gap);
+}
+
+.current-time {
+  font-size: 5rem;
+  line-height: 5rem;
+  color: var(--font-color);
+}
+
+.target-time {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: var(--font-color);
+}
+
+form {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--vertical-gap);
+}
+
+.form-container span {
+  color: rgb(255, 57, 57);
+  visibility: hidden;
 }

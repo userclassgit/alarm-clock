@@ -17,7 +17,18 @@
     <link rel="stylesheet" href="./assets/style/index.css">
     <script type="module" src="./assets/script/script.js"></script>
   </head>
-  <body>
-    
+  <body class="center">
+    <div class="wrapper flex">
+      <div class="current-time">00:00</div>
+      <div class="target-time">00:00</div>
+      <div class="form-container">
+        <form action="">
+          <input type="number" name="hourInput" min="0">
+          <input type="number" name="minuteInput" min="0">
+          <input type="submit" value="Submit">
+        </form>
+        <span class="validation-text">Please enter a value in both fields.</span>
+      </div>
+    </div>
   </body>
 </html>
