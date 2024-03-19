@@ -3,6 +3,7 @@
 :root {
   --gap: 1rem;
   --font-color: rgb(232, 232, 232);
+  --dark-font-color: #97A7B0;
   --dark-background: #2B3542;
   --turquoise: #21C8D4;
   --red: #FD3777;
@@ -37,10 +38,10 @@ body {
 }
 
 input {
-  height: 5rem;
+  height: 4.3rem;
   width: 5rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 input[type="number"] {
@@ -52,19 +53,26 @@ input[type="number"] {
 
 
 .current-time {
-  font-size: 5rem;
+  font-size: 5.3rem;
   line-height: 5rem;
   color: var(--font-color);
 }
 
-.target-time {
-  font-size: 3rem;
-  line-height: 3rem;
-  color: var(--font-color);
-
+.target-time-container {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
   .fa-bell {
-    font-size: 2.5rem;
+    color: var(--dark-font-color);
+    font-size: 2.3rem;
   }
+}
+
+.target-time {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  color: var(--dark-font-color);
 }
 
 input[type="submit"] {
@@ -74,6 +82,11 @@ input[type="submit"] {
   color: var(--font-color);
   font-size: 1.6rem;
   font-weight: 400;
+  transition: all 0.2s linear;
+
+  &:hover {
+    box-shadow: 0px 0px 10px var(--red);
+  }
 }
 
 form {

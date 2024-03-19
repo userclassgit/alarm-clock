@@ -9,6 +9,8 @@ const hourInputElement = utils.select('input[name="hourInput"]');
 const minuteInputElement = utils.select('input[name="minuteInput"]');
 const formElement = utils.select('form');
 const validationTextElement = utils.select('.validation-text');
+const targetTimeContainer = utils.select('.target-time-container');
+
 
 const currentTime = new Date();
 currentTimeElement.textContent = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
@@ -30,6 +32,9 @@ utils.listen('submit', formElement, (event) => {
   } else {
     validationTextElement.style.visibility = 'hidden';
   }
+
+  // show the bell and the target time 
+  targetTimeContainer.style.display = 'flex';
 
   const now = new Date();
   const target = new Date(now.getTime());
@@ -54,6 +59,9 @@ utils.listen('submit', formElement, (event) => {
   currentAlarm = setTimeout(function() {
     let audio = new Audio('./assets/media/wakey.mp3');
     audio.play();
+    hourInputElement.value = '';
+    minuteInputElement.value = '';
+    targetTimeContainer.style.display = 'none';
   }, diff);
 });
 
@@ -83,3 +91,11 @@ function validation(event) {
 }
 utils.listen('input', hourInputElement, validation);
 utils.listen('input', minuteInputElement, validation);
+
+// when you refresh the page, this removes the values in the input fields (if there's any) and hide the bell and the target time
+window.onload = function() {
+  hourInputElement.value = '';
+  minuteInputElement.value = '';
+
+  targetTimeContainer.style.display = 'none';
+};
