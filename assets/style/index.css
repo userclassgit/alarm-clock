@@ -44,7 +44,7 @@ input {
   font-size: 1.9rem;
 }
 
-input[type="number"] {
+input[type="text"] {
   -webkit-appearance: textfield; /* for Chrome, Safari, Opera */
   -moz-appearance: textfield;    /* for Firefox */
   appearance: textfield;
@@ -53,8 +53,8 @@ input[type="number"] {
 
 
 .current-time {
-  font-size: 5.3rem;
-  line-height: 5rem;
+  font-size: 180px;
+  line-height: 150px;
   color: var(--font-color);
 }
 
