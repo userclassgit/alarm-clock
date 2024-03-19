@@ -1,8 +1,12 @@
 @charset "utf-8";
 
 :root {
-  --vertical-gap: 2rem;
+  --gap: 1rem;
   --font-color: rgb(232, 232, 232);
+  --dark-background: #2B3542;
+  --turquoise: #21C8D4;
+  --red: #FD3777;
+  --border-radius: 3px;
 }
 
 .container {
@@ -22,15 +26,30 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: rgb(57, 57, 57);
+  background-color: var(--dark-background);
 }
 
 /* ============================================================================ */
 .wrapper {
   flex-direction: column;
   align-items: center;
-  gap: var(--vertical-gap);
+  gap: 3rem;
 }
+
+input {
+  height: 5rem;
+  width: 5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield; /* for Chrome, Safari, Opera */
+  -moz-appearance: textfield;    /* for Firefox */
+  appearance: textfield;
+  border-radius: var(--border-radius);
+}
+
 
 .current-time {
   font-size: 5rem;
@@ -42,15 +61,27 @@ body {
   font-size: 3rem;
   line-height: 3rem;
   color: var(--font-color);
+
+  .fa-bell {
+    font-size: 2.5rem;
+  }
+}
+
+input[type="submit"] {
+  width: 8rem;
+  border-radius: var(--border-radius);
+  background-color: var(--red);
+  color: var(--font-color);
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 form {
-  flex-direction: column;
-  align-items: center;
-  gap: var(--vertical-gap);
+  gap: var(--gap);
+  justify-content: center;
 }
 
 .form-container span {
-  color: rgb(255, 57, 57);
+  color: var(--red);
   visibility: hidden;
 }

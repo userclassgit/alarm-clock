@@ -18,6 +18,7 @@ setInterval(() => {
   currentTimeElement.textContent = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 }, 1000);
 
+let currentAlarm = null;
 
 utils.listen('submit', formElement, (event) => {
   event.preventDefault();
@@ -44,7 +45,13 @@ utils.listen('submit', formElement, (event) => {
 
   targetTimeElement.textContent = `${hourInputElement.value.padStart(2, '0')}:${minuteInputElement.value.padStart(2, '0')}`;
 
-  setTimeout(function() {
+  // If there's an alarm running rn, clear it.
+  if (currentAlarm !== null) {
+    clearTimeout(currentAlarm);
+  }
+
+  // Set the new alarm
+  currentAlarm = setTimeout(function() {
     let audio = new Audio('./assets/media/wakey.mp3');
     audio.play();
   }, diff);
@@ -53,7 +60,7 @@ utils.listen('submit', formElement, (event) => {
 /* ====================================VALIDATION==================================== */
 
 
-function enforceNumericInput(event) {
+function validation(event) {
   // makes it so that the input can only be numbers. Evan sent me this.
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
 
@@ -74,5 +81,5 @@ function enforceNumericInput(event) {
     }
   }
 }
-utils.listen('input', hourInputElement, enforceNumericInput);
-utils.listen('input', minuteInputElement, enforceNumericInput);
+utils.listen('input', hourInputElement, validation);
+utils.listen('input', minuteInputElement, validation);
